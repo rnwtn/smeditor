@@ -1,4 +1,7 @@
 <script lang="ts">
+  import Icon from "fa-svelte";
+  import { faX } from "@fortawesome/free-solid-svg-icons";
+
   export let name: string;
   export let filePath: string;
   export let onOpen: () => void;
@@ -7,29 +10,30 @@
   let highlight = "";
 </script>
 
-<div class="container border-top {highlight}">
+<div class="project-entry border-top {highlight}">
   <div
     class="info"
     on:click={onOpen}
     on:keypress={onOpen}
-    on:mouseenter={() => highlight = "highlight"}
-    on:mouseleave={() => highlight = ""}
+    on:mouseenter={() => (highlight = "highlight")}
+    on:mouseleave={() => (highlight = "")}
   >
     <h2 class="name">{name}</h2>
-    <h6 class="path">{filePath}</h6>
+    <p class="path">{filePath}</p>
   </div>
   <button
-    class="rounded-full border warning warning-hover btn-remove"
-    on:click|stopPropagation={onRemoved}></button
-  >
+    class="rounded-full button warning"
+    on:click|stopPropagation={onRemoved}
+  ><Icon icon={faX}/></button>
 </div>
 
 <style>
-  .container {
+  .project-entry {
     display: flex;
     justify-content: space-between;
     align-items: center;
     column-gap: 10px;
+    color: var(--color-font-primary);
   }
 
   .info {
@@ -39,49 +43,28 @@
   }
 
   .highlight {
-    color: var(--color-font-focus);
+    color: var(--color-font-light);
     background-color: var(--color-light);
   }
 
-  .name,
-  .path {
-    padding: 0;
-    margin: 0;
-  }
-
   .name {
-    font-size: 2rem;
-  }
-
-  .path {
-    color: var(--color-font-secondary);
-  }
-
-  .info > * {
     padding: 0;
     margin: 0;
   }
 
-  .btn-remove {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 8px;
-    width: 38px;
-    height: 38px;
-    border: none;
-    cursor: pointer;
+
+  .path {
+    color: var(--color-font-dark);
+    font-size: .8rem;
+    margin: 7px 0 3px 0;
+    padding: 0;
   }
 
-  .btn-remove {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .button.warning {
     margin-right: 8px;
     width: 38px;
     height: 38px;
-    border: none;
-    cursor: pointer;
     pointer-events: all;
+    font-size: 16px;
   }
 </style>

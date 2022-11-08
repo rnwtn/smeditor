@@ -1,19 +1,22 @@
 <script lang="ts">
   export let title: string;
+  export let open: boolean;
 </script>
 
 <!-- How to use: -->
 <!-- ---------------------------- -->
-<!-- <Model title="A good title"> -->
+<!-- <Model title="A good title" hidden={false}> -->
 <!--   <h2>Subtitle:</h2> -->
 <!--   <div>great information</div> -->
 <!--   <button on:click{onOkClicked}>Ok</button> -->
 <!-- </Model> -->
 
-<div class="shadow border">
-  <h1 class="border-bottom">{title}</h1>
-  <slot />
-</div>
+{#if open}
+  <div class="shadow border">
+    <h1 class="border-bottom">{title}</h1>
+    <slot />
+  </div>
+{/if}
 
 <style>
   div {
@@ -26,7 +29,7 @@
     border-radius: 8px;
     position: absolute;
     left: 50%;
-    top: 40%;
+    top: 25%;
     transform: translate(-50%, -50%);
   }
 

@@ -22,6 +22,7 @@
     "@tsconfig/svelte": "^3.0.0",
     "@types/node": "^18.7.10",
     "autoprefixer": "^10.4.13",
+    "fa-svelte": "^3.1.0",
     "svelte": "^3.49.0",
     "svelte-check": "^2.8.0",
     "svelte-fontawesome": "^0.0.3",

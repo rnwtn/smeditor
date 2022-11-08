@@ -1,23 +1,20 @@
 <script lang="ts">
-  import RomSelect from "./lib/RomSelect.svelte";
-  import Modal from "./lib/Modal.svelte";
   import ProjectSelect from "./lib/project-select/ProjectSelect.svelte";
   
 </script>
 
 <main>
-  <h1>Welcome to Tauri!</h1>
-  <Modal title="Open project">
-    <div>
-      <RomSelect
-        callback={(filePath) => {
-          alert(`FilePath: ${filePath}`);
-        }}
-      />
-    </div>
+  <div class="center-container">
     <ProjectSelect />
-  </Modal>
+  </div>
 </main>
 
 <style>
+  .center-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
 </style>

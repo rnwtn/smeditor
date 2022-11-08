@@ -2,9 +2,9 @@
   --color-primary: #3f375c;
   --color-light: #5a4e7c;
   --color-dark: #2a253b;
-  --color-font-focus: #ffffff;
   --color-font-primary: #dddddd;
-  --color-font-secondary: #aaaaaa;
+  --color-font-light: #ffffff;
+  --color-font-dark: #aaaaaa;
   --color-accent: #f5a623;
   --color-font-accent: #000000;
   --color-success: #7bbb43;
@@ -21,8 +21,14 @@ body {
   -moz-user-select: none; /* Old versions of Firefox */
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
-  background-color: var(--color-primary);
+  background-color: var(--color-dark);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  width: 80%;
+  max-width: 900px;
+  margin: auto;
 }
 
 .shadow {
@@ -54,11 +60,45 @@ body {
   border-bottom: 2px solid var(--color-dark);
 }
 
+.height-100 {
+  height: 100%;
+}
+
+.primary {
+  background-color: var(--color-primary);
+  color: var(--color-font-primary);
+}
+
+.light {
+  background-color: var(--color-light);
+  color: var(--color-font-primary);
+}
+
+.dark {
+  background-color: var(--color-dark);
+  color: var(--color-font-primary);
+}
+
 .warning {
   background-color: var(--color-warning);
   color: var(--color-font-warning);
 }
 
-.warning-hover:hover {
+.accent {
+  background-color: var(--color-accent);
+  color: var(--color-font-warning);
+}
+
+.warning.hover:hover {
   background-color: var(--color-warning-light);
 }
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+}
+
+
