@@ -1,0 +1,64 @@
+:root {
+  --color-primary: #3f375c;
+  --color-light: #5a4e7c;
+  --color-dark: #2a253b;
+  --color-font-focus: #ffffff;
+  --color-font-primary: #dddddd;
+  --color-font-secondary: #aaaaaa;
+  --color-accent: #f5a623;
+  --color-font-accent: #000000;
+  --color-success: #7bbb43;
+  --color-font-success: #000000;
+  --color-warning: #f24235;
+  --color-warning-light: #ff554a;
+  --color-font-warning: #000000;
+}
+
+body {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+  background-color: var(--color-primary);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.shadow {
+  box-shadow: 11px 11px 0 rgba(0, 0, 0, .2);
+}
+
+.rounded {
+  border-radius: 8px;
+}
+
+.rounded-full {
+  border-radius: 999px;
+}
+
+.border {
+  border: 2px solid var(--color-dark);
+}
+
+.border-top {
+  border-top: 2px solid var(--color-dark);
+}
+
+.border-bottom {
+  border-bottom: 2px solid var(--color-dark);
+}
+
+.border-top-bottom {
+  border-top: 2px solid var(--color-dark);
+  border-bottom: 2px solid var(--color-dark);
+}
+
+.warning {
+  background-color: var(--color-warning);
+  color: var(--color-font-warning);
+}
+
+.warning-hover:hover {
+  background-color: var(--color-warning-light);
+}
