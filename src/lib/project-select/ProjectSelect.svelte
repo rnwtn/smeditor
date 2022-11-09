@@ -1,69 +1,57 @@
 <script>
-  import Icon from "fa-svelte";
-  import { faPlus } from "@fortawesome/free-solid-svg-icons";
-
   import ProjectEntry from "./ProjectEntry.svelte";
   import RomSelect from "../RomSelect.svelte";
   import Modal from "../Modal.svelte";
 
   let isModalOpen = false;
+  let openModal = () => (isModalOpen = true);
+  let closeModal = () => (isModalOpen = false);
 </script>
 
-<div class="container border-bottom primary">
-  <Modal title="Open project" open={isModalOpen}>
-    <div>
-      <RomSelect
-        callback={(filePath) => {
-          alert(`FilePath: ${filePath}`);
-        }}
-      />
-    </div>
-  </Modal>
-  <div class="header">
-    <h1>Open Project</h1>
-    <button class="button rounded accent" on:click={() => (isModalOpen = true)}
-      ><Icon icon={faPlus} /></button
-    >
+<Modal title="start new project" open={isModalOpen}>
+  <div>
+    <button class="nes-btn" on:click={closeModal}>cancel</button>
+    <button class="nes-btn is-primary">confirm</button>
   </div>
-  <ProjectEntry
-    name="My Awesome Project"
-    filePath="/home/me/my_awesome_project.smc"
-    onOpen={() => alert("opened")}
-    onRemoved={() => alert("removed")}
-  />
-  <ProjectEntry
-    name="My Awesome Project"
-    filePath="/home/me/my_awesome_project.smc"
-    onOpen={() => alert("opened")}
-    onRemoved={() => alert("removed")}
-  />
-  <ProjectEntry
-    name="My Awesome Project"
-    filePath="/home/me/my_awesome_project.smc"
-    onOpen={() => alert("opened")}
-    onRemoved={() => alert("removed")}
-  />
+</Modal>
+<div class="nes-container is-dark with-title">
+  <p class="title">Open Project</p>
+  <button class="nes-btn is-primary new-project-btn" on:click={openModal}>
+    New Project
+  </button>
+  <div class="project-list border-top">
+    <ProjectEntry
+      name="My Awesome Project"
+      filePath="/home/me/my_awesome_project.smc"
+      onOpen={() => alert("opened")}
+      onRemoved={() => alert("removed")}
+    />
+    <ProjectEntry
+      name="My Awesome Project"
+      filePath="/home/me/my_awesome_project.smc"
+      onOpen={() => alert("opened")}
+      onRemoved={() => alert("removed")}
+    />
+    <ProjectEntry
+      name="My Awesome Project"
+      filePath="/home/me/my_awesome_project.smc"
+      onOpen={() => alert("opened")}
+      onRemoved={() => alert("removed")}
+    />
+  </div>
 </div>
 
 <style>
-  .header {
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-    margin-left: 10px;
-    padding: 0;
+  .new-project-btn {
+    position: absolute;
+    top: 0.4em;
+    right: 2rem;
   }
-  .header h1 {
-    color: var(--color-font-primary);
-    margin: 10px 0;
-  }
-  .header button {
-    margin-right: 10px;
-    padding: 0;
-    margin-top: auto;
-    margin-bottom: auto;
-    width: 30px;
-    height: 30px;
-    font-size: 16px;
+
+  .project-list {
+    margin-top: 3rem;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
   }
 </style>

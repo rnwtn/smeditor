@@ -1,104 +1,55 @@
+@font-face {
+    font-family: "press-start-2p";
+    src: url("./fonts/PressStart2P-Regular.ttf")  format("truetype");
+}
+
 :root {
-  --color-primary: #3f375c;
-  --color-light: #5a4e7c;
-  --color-dark: #2a253b;
-  --color-font-primary: #dddddd;
-  --color-font-light: #ffffff;
-  --color-font-dark: #aaaaaa;
-  --color-accent: #f5a623;
-  --color-font-accent: #000000;
-  --color-success: #7bbb43;
-  --color-font-success: #000000;
-  --color-warning: #f24235;
-  --color-warning-light: #ff554a;
-  --color-font-warning: #000000;
+  --color-custom-neutral: #4c414f,
+  --color-custom-red: #7c3d46,
+  --color-custom-green: #c4bf5e,
+  --color-custom-yellow: #ebb23f,
+  --color-custom-orange: #f76b2f,
+}
+
+html {
+  cursor: default;
 }
 
 body {
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none; /* Safari */
-  -khtml-user-select: none; /* Konqueror HTML */
-  -moz-user-select: none; /* Old versions of Firefox */
-  -ms-user-select: none; /* Internet Explorer/Edge */
-  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
-  background-color: var(--color-dark);
-  font-family: Arial, Helvetica, sans-serif;
+  height: 100vh;
+  width: 100vw;
+  cursor: default;
+  font-family: "press-start-2p", sans-serif;
+  background-color: #212529;
+  color: #fff;
+}
+
+button {
+  cursor: pointer !important;
 }
 
 .container {
-  width: 80%;
-  max-width: 900px;
-  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin-top: 2rem;
 }
 
 .shadow {
-  box-shadow: 11px 11px 0 rgba(0, 0, 0, .2);
+  box-shadow: 1.5rem 1.5rem 0px rgba(0, 0, 0, .9);
 }
 
-.rounded {
-  border-radius: 8px;
-}
-
-.rounded-full {
-  border-radius: 999px;
-}
-
-.border {
-  border: 2px solid var(--color-dark);
+.border-black {
+  border: 5px solid #000000;
 }
 
 .border-top {
-  border-top: 2px solid var(--color-dark);
+  border-top: 5px solid #ffffff;
 }
 
 .border-bottom {
-  border-bottom: 2px solid var(--color-dark);
+  border-bottom: 5px solid #ffffff;
 }
-
-.border-top-bottom {
-  border-top: 2px solid var(--color-dark);
-  border-bottom: 2px solid var(--color-dark);
-}
-
-.height-100 {
-  height: 100%;
-}
-
-.primary {
-  background-color: var(--color-primary);
-  color: var(--color-font-primary);
-}
-
-.light {
-  background-color: var(--color-light);
-  color: var(--color-font-primary);
-}
-
-.dark {
-  background-color: var(--color-dark);
-  color: var(--color-font-primary);
-}
-
-.warning {
-  background-color: var(--color-warning);
-  color: var(--color-font-warning);
-}
-
-.accent {
-  background-color: var(--color-accent);
-  color: var(--color-font-warning);
-}
-
-.warning.hover:hover {
-  background-color: var(--color-warning-light);
-}
-
-.button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: none;
-    cursor: pointer;
-}
-
 

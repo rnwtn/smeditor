@@ -12,31 +12,33 @@
 <!-- </Model> -->
 
 {#if open}
-  <div class="shadow border">
-    <h1 class="border-bottom">{title}</h1>
+  <div class="overlay" />
+  <div class="shadow modal">
+    <p>{title}</p>
     <slot />
   </div>
 {/if}
 
 <style>
-  div {
-    width: 90%;
-    max-width: 800px;
-    margin: auto;
-    background-color: var(--color-primary);
-    color: var(--color-font-primary);
-    border: 2px solid var(--color-dark);
-    border-radius: 8px;
-    position: absolute;
+  .modal {
+    position: fixed;
+    width: fit-content;
+    padding: 10px;
+    max-width: 90%;
     left: 50%;
     top: 25%;
+    z-index: 999;
     transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    border: 5px solid #000000;
   }
 
-  h1 {
-    padding: 20px;
-    border-radius: 8px 8px 0 0;
-    margin: 0;
-    background-color: var(--color-light);
+  .overlay {
+    position: fixed;
+    width: 99999px;
+    height: 99999px;
+    z-index: 998;
+    background-color: rgba(0, 0, 0, .5);
   }
+
 </style>
