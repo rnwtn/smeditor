@@ -1,6 +1,7 @@
 <script lang="ts">
   export let title: string;
-  export let open: boolean;
+  export let visible: boolean;
+  export let onHide: () => void;
 </script>
 
 <!-- How to use: -->
@@ -11,10 +12,10 @@
 <!--   <button on:click{onOkClicked}>Ok</button> -->
 <!-- </Model> -->
 
-{#if open}
-  <div class="overlay" />
-  <div class="shadow modal">
-    <p>{title}</p>
+{#if visible}
+  <div class="overlay" on:click={onHide} on:keydown={onHide} />
+  <div class="modal">
+    <h2 class="border-bottom">{title}</h2>
     <slot />
   </div>
 {/if}
@@ -29,7 +30,7 @@
     top: 25%;
     z-index: 999;
     transform: translate(-50%, -50%);
-    background-color: #ffffff;
+    background-color: var(--color-custom-neutral);
     border: 5px solid #000000;
   }
 

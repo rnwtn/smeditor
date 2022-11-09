@@ -20,8 +20,9 @@
   </div>
   {#if onRemoved}
     <div>
-      <button class="nes-btn is-error" on:click|stopPropagation={onRemoved}
-        >remove</button
+      <button
+        class="nes-btn is-error btn-remove"
+        on:click|stopPropagation={onRemoved}>Remove</button
       >
     </div>
   {:else}
@@ -34,15 +35,24 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    column-gap: 1.5em;
-    padding: 1em 1em 0 1em;
+    column-gap: 2em;
+  }
+
+  p {
+    margin: 0;
+    padding: 0;
   }
 
   .info {
     cursor: pointer;
+    padding: 1em 1em 1em 1em;
+  }
+
+  .btn-remove {
+    margin-right: 1em;
   }
 
   .highlight {
-    background-color: red;
+    background-color: var(--color-custom-neutral);
   }
 </style>

@@ -4,11 +4,16 @@
 }
 
 :root {
-  --color-custom-neutral: #4c414f,
-  --color-custom-red: #7c3d46,
-  --color-custom-green: #c4bf5e,
-  --color-custom-yellow: #ebb23f,
-  --color-custom-orange: #f76b2f,
+  --color-custom-neutral: #4c414f;
+  --color-custom-red: #7c3d46;
+  --color-custom-green: #c4bf5e;
+  --color-custom-yellow: #ebb23f;
+  --color-custom-orange: #f76b2f;
+}
+
+* {
+  margin: 0;
+  padding: 0;
 }
 
 html {
@@ -16,16 +21,21 @@ html {
 }
 
 body {
+  position: absolute;
   height: 100vh;
   width: 100vw;
   cursor: default;
   font-family: "press-start-2p", sans-serif;
-  background-color: #212529;
+  background-color: #383838;
   color: #fff;
 }
 
 button {
   cursor: pointer !important;
+}
+
+input:disabled {
+  background-color: #999;
 }
 
 .container {
