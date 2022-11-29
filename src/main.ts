@@ -1,6 +1,5 @@
-import "nes.css/css/nes.min.css";
-
 import "./style.css";
+import "./themes.css";
 import App from "./App.svelte";
 
 const app = new App({

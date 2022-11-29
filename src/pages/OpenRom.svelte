@@ -1,12 +1,22 @@
 <script lang="ts">
+  import { getVersion } from "@tauri-apps/api/app";
   import { open } from "@tauri-apps/api/dialog";
   import { exists } from "@tauri-apps/api/fs";
   import { appDir } from "@tauri-apps/api/path";
-  /* import { CheckSolid } from "svelte-awesome-icons" */
-  export let callback: (filePath: string) => void;
+
+  export let onRomOpened: (filePath: string) => void;
 
   let filePath = "";
-  let isRomLoaded = false;
+  let appVersion = "";
+
+  const init = async () => {
+    try {
+      appVersion = await getVersion();
+    } catch (e) {
+      appVersion = "???";
+    }
+  };
+  init();
 
   const selectFilePath = async () => {
     try {
@@ -23,7 +33,7 @@
       if (selected !== null) {
         filePath = selected;
         await exists(filePath, {});
-        alert("hello");
+        onRomOpened(filePath);
       }
     } catch (err) {
       alert(err);
@@ -31,10 +41,16 @@
   };
 </script>
 
-<div>
-  <button on:click={selectFilePath}> asdf </button>
-  <div />
+<div class="page">
+  <div class="center content">
+    <h1>Smeditor</h1>
+    <p>v{appVersion}</p>
+    <button on:click={selectFilePath}>Open Rom</button>
+  </div>
 </div>
 
-<style>
+<style lang="scss">
+  .content > * {
+    margin: 0.6em 0;
+  }
 </style>
