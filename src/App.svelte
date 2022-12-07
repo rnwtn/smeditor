@@ -1,13 +1,13 @@
 <script lang="ts">
-  import OpenRom from "./pages/OpenRom.svelte";
-  import HexEditor from "./pages/HexEditor.svelte";
+  import OpenRom from "./components/OpenRom.svelte";
+  import HexEditor from "./components/HexEditor.svelte";
 
   enum Page {
     OPEN_ROM,
     HEX_EDITOR,
   }
 
-  let theme = "encore";
+  let theme = "default";
   let currentPage = Page.HEX_EDITOR;
 </script>
 

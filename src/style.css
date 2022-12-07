@@ -1,6 +1,6 @@
 @font-face {
     font-family: "Fira Mono";
-    src: url("./fonts/FiraMono-Regular.ttf")  format("truetype");
+    src: url("./fonts/FiraMono-Regular.ttf") format("truetype");
 }
 
 * {
@@ -10,25 +10,31 @@
   font-family: "Fira Mono";
 }
 
+
+html {
+  font-size: 16px;
+}
+
 button {
-  padding: 1em 1.2em;
+  padding: .8em 1.1em;
   font-size: 1.2rem;
-  background-color: var(--essential-positive);
   border: 0;
   border-radius: 8px;
-  color: var(--text-base);
   cursor: pointer;
   transition: all 0.1s ease-in-out;
+  background-color: var(--background-button);
+  color: var(--text-button);
 }
 
 .page {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: var(--background-base);
-  color: var(--text-base);
+  background-color: var(--background-primary);
+  color: var(--text-primary);
   width: 100%;
   height: 100%;
+  overflow: scroll;
 }
 
 .center {
@@ -37,6 +43,10 @@ button {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+}
+
+.positive {
+
 }
 
 .bordered {

@@ -53,4 +53,8 @@
   .content > * {
     margin: 0.6em 0;
   }
+
+  .page {
+    font-size: 2.9rem;
+  }
 </style>
