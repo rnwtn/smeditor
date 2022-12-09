@@ -11,6 +11,8 @@
   // end testing
 
   let hoveredIndex: number = -1;
+  let activeIndex: number = -1;
+
   function toHex(num: number): string {
     let hex: string = num.toString(16).toUpperCase();
     console.log(hex);
@@ -24,23 +26,29 @@
   function onByteHovered(index: number) {
     hoveredIndex = index;
   }
+
+  function onByteActive(index: number) {
+    activeIndex = index;
+  }
 </script>
 
-<div class="page">
+<div class="page monospaced">
   <div id="settings-container" />
-  <div id="bytes-container">
+  <div id="bytes-container" class="grid">
     {#each bytes as byte, index}
-      <div
+      <span
         class="byte"
         class:hovered={index === hoveredIndex}
+        class:active={index === activeIndex}
         on:focus
         on:mouseover={() => onByteHovered(index)}
+        on:click={() => onByteActive(index)}
       >
         {toHex(byte)}
-      </div>
+      </span>
     {/each}
   </div>
-  <div id="preview-container">
+  <div id="preview-container" class="grid">
     {#each bytes as byte, index}
       <span
         class="preview"
@@ -60,33 +68,37 @@
     column-gap: 1em;
     align-items: flex-start;
     justify-content: flex-start;
+    font-size: 1.1rem;
+    user-select: none;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+  }
+
+  .hovered {
+    background-color: var(--background-hover);
+    cursor: default;
   }
 
   .byte {
+    position: relative;
     display: flex;
     justify-content: center;
     padding: 0.25em;
-    user-select: none;
+  }
+
+  .byte.active {
+    outline: 1px solid red;
   }
 
   .preview {
     display: flex;
     justify-content: center;
-    padding: 0.25em 0.05em;
-    user-select: none;
+    padding: 0.25em 0.1em;
   }
 
-  .byte.hovered,
-  .preview.hovered {
-    background-color: var(--text-warning);
-    cursor: default;
-  }
-
-  #bytes-container,
-  #preview-container {
-    display: grid;
-    grid-template-columns: repeat(16, 1fr);
-  }
 
   #settings-container {
     position: absolute;

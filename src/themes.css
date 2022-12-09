@@ -1,20 +1,14 @@
 .default {
   --background-primary: #1a1a1a;
-  --background-accent: #1ed760;
-  --background-negative: #e91429;
-  --background-warning: #ffa42b;
-  --background-positive: #1ed760;
-  --background-announcement: #0d72ea;
-  --background-button: #c0c0c0;
+  --background-hover: #404040;
+
+  --accent-1: #e91429;
+  --accent-2: #ffa42b;
+  --accent-3: #1ed760;
 
   --text-primary: #cccccc;
   --text-subdued: #a7a7a7;
-  --text-accent: #1ed760;
-  --text-negative: #f15e6c;
-  --text-warning: #ffa42b;
-  --text-positive: #1ed760;
-  --text-announcement: #3d91f4;
-  --text-button: #000000;
-
-  --accent-1: #cccccc;
+  --text-accent-1: #1ed760;
+  --text-accent-2: #1ed760;
+  --text-accent-3: #1ed760;
 }
