@@ -8,10 +8,14 @@
 <style lang="scss">
   .modal {
     position: fixed;
-    width: 50%;
-    height: 50%;
+    min-width: 50vw;
+    min-height: 50vh;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 </style>

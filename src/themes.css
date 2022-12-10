@@ -1,6 +1,7 @@
 .default {
-  --color-background-primary: #162a30;
+  --color-background-primary: #061a20;
   --color-background-secondary: #2e2f48;
+  --color-background-highlight: #3e3f58;
 
   --color-border: #000000;
   --color-shadow: #000000;

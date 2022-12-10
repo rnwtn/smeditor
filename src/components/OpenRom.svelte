@@ -45,7 +45,7 @@
 
 <div class="page">
   <Modal>
-    <div class="center content">
+    <div class="content center text-raised">
       <h1>Smeditor</h1>
       <p>v{appVersion}</p>
       <Button onclick={selectFilePath}>Open Rom</Button>
@@ -54,8 +54,15 @@
 </div>
 
 <style lang="scss">
-  .content > * {
-    margin: 0.6em 0;
+  h1 {
+    line-height: .8;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: .7em;
   }
 
   .page {
