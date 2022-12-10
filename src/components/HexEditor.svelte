@@ -36,7 +36,7 @@
   <div id="settings-container" />
   <div id="bytes-container" class="grid">
     {#each bytes as byte, index}
-      <span
+      <div
         class="byte"
         class:hovered={index === hoveredIndex}
         class:active={index === activeIndex}
@@ -45,7 +45,7 @@
         on:click={() => onByteActive(index)}
       >
         {toHex(byte)}
-      </span>
+      </div>
     {/each}
   </div>
   <div id="preview-container" class="grid">
@@ -78,7 +78,7 @@
   }
 
   .hovered {
-    background-color: var(--background-hover);
+    background-color: var(--color-background-secondary);
     cursor: default;
   }
 
@@ -99,8 +99,11 @@
     padding: 0.25em 0.1em;
   }
 
-
   #settings-container {
     position: absolute;
+  }
+
+  .byte:nth-child(even) {
+    color: var(--color-text-subdued);
   }
 </style>
