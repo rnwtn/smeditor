@@ -15,7 +15,5 @@ export function leftPad(value: string, length: number) {
   while (padStr.length < length) {
     padStr += padStr;
   }
-  console.log(padStr);
-  console.log(length);
   return (padStr.toString() + value.toString()).slice(-length);
 } 
