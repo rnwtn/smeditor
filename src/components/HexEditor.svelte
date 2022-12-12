@@ -9,7 +9,7 @@
   let scrollOffset: number = 0;
   $: numLinesShown = Math.min(Math.floor(bytes.length / 16), 0);
   $: {
-    console.log(numLinesShown);
+    //console.log(numLinesShown);
   }
 
   function toHex(num: number): string {
@@ -20,12 +20,20 @@
     return 0;
   }
 
-  function onByteHovered(index: number) {
+  function onByteHovered(e: Event, index: number) {
+    e.preventDefault();
+    e.stopPropagation();
     hoveredIndex = index;
   }
 
-  function onByteClick(index: number) {
+  function onByteClick(e: Event, index: number) {
+    e.preventDefault();
+    e.stopPropagation();
     editingIndex = index;
+  }
+
+  function onKeydown(e: Event) {
+
   }
 </script>
 
@@ -40,15 +48,15 @@
   </div>
   <div id="bytes-container" class="grid">
     {#each bytes as byte, index}
-      <div
+      <span
         class="byte"
         class:hovered={index === hoveredIndex}
         class:editing={index === editingIndex}
-        on:mouseover={() => onByteHovered(index)}
-        on:click={() => onByteClick(index)}
+        on:mouseover={(e) => onByteHovered(e, index)}
+        on:click={(e) => onByteClick(e, index)}
       >
         {leftPad(toHex(byte), 2)}
-      </div>
+      </span>
     {/each}
   </div>
   <div id="preview-container" class="grid">
@@ -57,8 +65,8 @@
         class="preview"
         class:hovered={index === hoveredIndex}
         class:editing={index === editingIndex}
-        on:focus
-        on:mouseover={() => onByteHovered(index)}
+        on:mouseover={(e) => onByteHovered(e, index)}
+        on:click={(e) => onByteClick(e, index)}
       >
         {toAscii(byte)}
       </span>
@@ -66,14 +74,23 @@
   </div>
 </div>
 
+<svelte:body
+  on:click={() => (editingIndex = -1)}
+  on:mouseover={() => (hoveredIndex = -1)}
+  on:keydown={() => console.log("Hello")}
+/>
+
 <style lang="scss">
+  * {
+    user-select: none;
+  }
+
   .page {
     display: flex;
     column-gap: 1em;
     align-items: flex-start;
     justify-content: flex-start;
     font-size: 1.1rem;
-    user-select: none;
   }
 
   .grid {
