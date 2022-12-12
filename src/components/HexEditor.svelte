@@ -1,22 +1,19 @@
 <script lang="ts">
   import { toAscii } from "../utils/asciiUtils";
+  import { range, leftPad } from "../utils/numberUtils";
 
   export let bytes: number[] = [];
 
-  // for testing
-  for (let i = 0; i < 259; i++) {
-    bytes.push(Math.floor(Math.random() * 255));
-  }
-  bytes = [...bytes];
-  // end testing
-
   let hoveredIndex: number = -1;
   let editingIndex: number = -1;
+  let scrollOffset: number = 0;
+  $: numLinesShown = Math.min(Math.floor(bytes.length / 16), 0);
+  $: {
+    console.log(numLinesShown);
+  }
 
   function toHex(num: number): string {
-    let hex: string = num.toString(16).toUpperCase();
-    console.log(hex);
-    return ("00" + hex).slice(-2);
+    return num.toString(16).toUpperCase();
   }
 
   function fromHex(hex: string): number {
@@ -34,17 +31,23 @@
 
 <div class="page monospaced">
   <div id="settings-container" />
+  <div id="line-number-container">
+    {#each range(scrollOffset, bytes.length, 16) as line}
+      <div class="line-number">
+        {leftPad(toHex(line), 8)}
+      </div>
+    {/each}
+  </div>
   <div id="bytes-container" class="grid">
     {#each bytes as byte, index}
       <div
         class="byte"
         class:hovered={index === hoveredIndex}
         class:editing={index === editingIndex}
-        on:focus
         on:mouseover={() => onByteHovered(index)}
         on:click={() => onByteClick(index)}
       >
-        {toHex(byte)}
+        {leftPad(toHex(byte), 2)}
       </div>
     {/each}
   </div>
@@ -53,6 +56,7 @@
       <span
         class="preview"
         class:hovered={index === hoveredIndex}
+        class:editing={index === editingIndex}
         on:focus
         on:mouseover={() => onByteHovered(index)}
       >
@@ -77,23 +81,22 @@
     grid-template-columns: repeat(16, 1fr);
   }
 
-  .hovered {
-    background-color: var(--color-background-secondary);
-    cursor: default;
+  .line-number {
+    padding: 0.25em;
   }
 
   .byte {
     position: relative;
+    background-color: var(--color-background-primary);
     box-sizing: border-box;
     display: flex;
     justify-content: center;
     padding: 0.25em;
-    border-bottom: 0.25em solid var(--color-background-primary);
   }
 
   .byte.editing {
     background-color: var(--color-background-highlight);
-    animation: borderblink 1s infinite;
+    animation: background-blink 1s infinite;
     border-radius: 2px;
   }
 
@@ -101,7 +104,15 @@
     display: flex;
     justify-content: center;
     padding: 0.25em 0.1em;
-    border-bottom: 0.25em solid var(--color-background-primary);
+  }
+
+  .preview.editing {
+    background-color: var(--color-background-highlight);
+  }
+
+  .hovered {
+    background-color: var(--color-background-secondary);
+    cursor: default;
   }
 
   #settings-container {
@@ -112,18 +123,33 @@
     color: var(--color-text-subdued);
   }
 
-  @keyframes borderblink {
+  @keyframes background-blink {
     0% {
-      border-bottom: 0.25em solid var(--color-accent-3);
+      background: linear-gradient(
+        var(--color-background-highlight),
+        var(--color-background-highlight) 90%,
+        var(--color-accent-3) 90%
+      );
     }
     30% {
-      border-bottom: 0.25em solid var(--color-accent-3);
+      background: linear-gradient(
+        var(--color-background-highlight),
+        var(--color-background-highlight) 90%,
+        var(--color-accent-3) 90%
+      );
     }
     60% {
-      border-bottom: 0.25em solid var(--color-background-primary);
+      background: linear-gradient(
+        var(--color-background-highlight),
+        var(--color-background-highlight) 100%
+      );
     }
     100% {
-      border-bottom: 0.25em solid var(--color-accent-3);
+      background: linear-gradient(
+        var(--color-background-highlight),
+        var(--color-background-highlight) 90%,
+        var(--color-accent-3) 90%
+      );
     }
   }
 </style>

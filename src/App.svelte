@@ -7,8 +7,16 @@
     HEX_EDITOR,
   }
 
+  let bytes: number[] = [];
+  // for testing
+  for (let i = 0; i < 259; i++) {
+    bytes.push(Math.floor(Math.random() * 255));
+  }
+  bytes = [...bytes];
+  // end testing
+
   let theme = "default";
-  let currentPage = Page.OPEN_ROM;
+  let currentPage = Page.HEX_EDITOR;
 </script>
 
 <main class={theme}>
@@ -19,7 +27,7 @@
       }}
     />
   {:else if currentPage === Page.HEX_EDITOR}
-    <HexEditor />
+    <HexEditor bind:bytes={bytes}/>
   {/if}
 </main>
 

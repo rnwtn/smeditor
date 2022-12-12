@@ -4,7 +4,7 @@
   import { exists } from "@tauri-apps/api/fs";
   import { appDir } from "@tauri-apps/api/path";
   import Button from "./common/Button.svelte";
-    import Modal from "./Modal.svelte";
+  import Alert from "./common/Alert.svelte";
 
   export let onRomOpened: (filePath: string) => void;
 
@@ -44,13 +44,13 @@
 </script>
 
 <div class="page">
-  <Modal>
+  <Alert>
     <div class="content center text-raised">
       <h1>Smeditor</h1>
       <p>v{appVersion}</p>
       <Button onclick={selectFilePath}>Open Rom</Button>
     </div>
-  </Modal>
+  </Alert>
 </div>
 
 <style lang="scss">
