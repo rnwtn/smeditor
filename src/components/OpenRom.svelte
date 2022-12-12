@@ -44,9 +44,8 @@
 </script>
 
 <div class="page">
-  <Alert>
+  <Alert title="Smeditor">
     <div class="content center text-raised">
-      <h1>Smeditor</h1>
       <p>v{appVersion}</p>
       <Button onclick={selectFilePath}>Open Rom</Button>
     </div>
@@ -54,18 +53,12 @@
 </div>
 
 <style lang="scss">
-  h1 {
-    line-height: .8;
-  }
-
   .content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     row-gap: .7em;
+    text-align: center;
   }
 
-  .page {
-    font-size: 2.9rem;
+  .content p {
+    margin-bottom: 10px;
   }
 </style>

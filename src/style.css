@@ -62,11 +62,15 @@ html {
 
 
 .rounded {
-  border-radius: 7px;
+  border-radius: 10px;
+}
+
+.rounded-top {
+  border-radius: 10px 10px 0 0;
 }
 
 .text-raised {
-  text-shadow: .1em .1em var(--color-shadow);
+  text-shadow: 3px 3px var(--color-shadow);
 }
 
 .raised {
@@ -88,6 +92,10 @@ html {
 .raised.hoverable:active {
   transform: translate(4px, 4px);
   box-shadow: 0px 0px var(--color-shadow);
+}
+
+.border-bottom {
+  border-bottom: 3px solid var(--color-border);
 }
 
 .monospaced {

@@ -16,7 +16,7 @@
   // end testing
 
   let theme = "default";
-  let currentPage = Page.HEX_EDITOR;
+  let currentPage = Page.OPEN_ROM;
 </script>
 
 <main class={theme}>
