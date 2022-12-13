@@ -46,19 +46,23 @@
 <div class="page">
   <Alert title="Smeditor">
     <div class="content center text-raised">
-      <p>v{appVersion}</p>
       <Button onclick={selectFilePath}>Open Rom</Button>
+      <p>v{appVersion}</p>
     </div>
   </Alert>
 </div>
 
 <style lang="scss">
   .content {
-    row-gap: .7em;
+    row-gap: 0.7em;
     text-align: center;
   }
 
   .content p {
     margin-bottom: 10px;
+    position: absolute;
+    left: 0.3em;
+    top: 0em;
+    font-size: 0.7em;
   }
 </style>

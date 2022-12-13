@@ -5,7 +5,7 @@
 </script>
 
 <div class="modal raised rounded background-secondary">
-  <h1 class="title text-raised rounded-top border-bottom">{title}</h1>
+  <h3 class="title rounded-top border-bottom">{title}</h3>
   <div class="content">
     <slot />
   </div>
@@ -14,26 +14,23 @@
 <style lang="scss">
   .modal {
     position: fixed;
-    min-width: 10vw;
+    width: 50vw;
+    max-width: 30em;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    /* display: flex; */
-    /* justify-content: center; */
-    /* align-items: center; */
   }
 
   .title {
     width: 100%;
+    font-size: 200%;
     padding-left: .3em;
     padding-right: .3em;
     background-color: var(--color-background-highlight);
-    text-align: center;
-    font-size: 3.5rem;
   }
 
   .content {
-    padding-top: .5em;
-    padding-bottom: .5em;
+    position: relative;
+    padding: 1em 1em 1em 1em;
   }
 </style>

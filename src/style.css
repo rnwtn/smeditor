@@ -12,16 +12,34 @@
     font-family: "Code Saver";
     src: url("./fonts/Code_Saver/CodeSaver-Regular.otf") format("truetype");
 }
+/* makes sizing simpler */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* remove default spacing */
+/* force styling of type through styling, rather than elements */
 
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: "Code Saver";
+  font: inherit;
+  font-family: "Code Saver", monospace;
 }
 
+/* dark mode user-agent-styles */
+
 html {
-  font-family: Arial, Helvetica, sans-serif;
+  color-scheme: dark light;
+}
+
+/* min body height */
+
+body {
+  min-height: 100vh;
 }
 
 .page {
@@ -62,35 +80,31 @@ html {
 
 
 .rounded {
-  border-radius: 10px;
+  border-radius: 7px;
 }
 
 .rounded-top {
-  border-radius: 10px 10px 0 0;
-}
-
-.text-raised {
-  text-shadow: 3px 3px var(--color-shadow);
+  border-radius: 7px 7px 0 0;
 }
 
 .raised {
   transform: translate(-2px, -2px);
   border: 3px solid var(--color-border);
-  box-shadow: 10px 10px var(--color-shadow);
+  box-shadow: 6px 6px var(--color-shadow);
 }
 
 .raised.hoverable {
-  box-shadow: 5px 5px var(--color-shadow);
-  transition: all 0.075s linear;
+  box-shadow: 3px 3px var(--color-shadow);
+  transition: all 0.075s ease-in;
 }
 
 .raised.hoverable:hover {
-  transform: translate(1px, 1px);
-  box-shadow: 3px 3px var(--color-shadow);
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px var(--color-shadow);
 }
 
 .raised.hoverable:active {
-  transform: translate(4px, 4px);
+  transform: translate(3px, 3px);
   box-shadow: 0px 0px var(--color-shadow);
 }
 

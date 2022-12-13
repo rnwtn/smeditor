@@ -8,11 +8,9 @@
 
 <style>
   button {
-    padding: 0.5em 1em;
-    font-size: 1.2rem;
+    padding: 0.3em .75em;
     font-family: "Code Saver";
     font-weight: bold;
-    text-shadow: 1px 1px 0 black;
     cursor: pointer;
     background-color: var(--color-accent-1);
     color: var(--text-primary);
