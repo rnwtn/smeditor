@@ -9,7 +9,6 @@
 <style>
   button {
     padding: 0.3em .75em;
-    font-family: "Code Saver";
     font-weight: bold;
     cursor: pointer;
     background-color: var(--color-accent-1);

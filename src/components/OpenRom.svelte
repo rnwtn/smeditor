@@ -43,7 +43,7 @@
   };
 </script>
 
-<div class="page">
+<div>
   <Alert title="Smeditor">
     <div class="content center text-raised">
       <Button onclick={selectFilePath}>Open Rom</Button>

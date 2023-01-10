@@ -1,6 +1,7 @@
 <script lang="ts">
   import OpenRom from "./components/OpenRom.svelte";
   import HexEditor from "./components/HexEditor.svelte";
+  import ContainerPrimary from "./components/common/ContainerPrimary.svelte";
 
   enum Page {
     OPEN_ROM,
@@ -20,19 +21,22 @@
 </script>
 
 <main class={theme}>
-  {#if currentPage === Page.OPEN_ROM}
-    <OpenRom
-      onRomOpened={(filePath) => {
-        alert(filePath);
-      }}
-    />
-  {:else if currentPage === Page.HEX_EDITOR}
-    <HexEditor bind:bytes={bytes}/>
-  {/if}
+  <ContainerPrimary showGrid={true}>
+    {#if currentPage === Page.OPEN_ROM}
+      <OpenRom
+        onRomOpened={(filePath) => {
+          alert(filePath);
+        }}
+      />
+    {:else if currentPage === Page.HEX_EDITOR}
+      <HexEditor bind:bytes />
+    {/if}
+  </ContainerPrimary>
 </main>
 
 <style lang="scss">
   main {
-    background-color: var(--background-base);
+    height: 100vh;
+    width: 100vw;
   }
 </style>

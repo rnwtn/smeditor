@@ -90,7 +90,6 @@
     column-gap: 1em;
     align-items: flex-start;
     justify-content: flex-start;
-    font-size: 1.1rem;
   }
 
   .grid {
@@ -106,20 +105,15 @@
     position: relative;
     background-color: var(--color-background-primary);
     box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    padding: 0.25em;
+    padding: .25em;
   }
 
   .byte.editing {
     background-color: var(--color-background-highlight);
     animation: background-blink 1s infinite;
-    border-radius: 2px;
   }
 
   .preview {
-    display: flex;
-    justify-content: center;
     padding: 0.25em 0.1em;
   }
 
